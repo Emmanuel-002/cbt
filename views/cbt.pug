@@ -1,0 +1,39 @@
+html
+    head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title=`Test Page ${user_id}`
+    link(rel="stylesheet", href="/assets/css/bootstrap-grid.css") 
+    link(rel="stylesheet", href="/assets/css/bootstrap-reboot.css") 
+    link(rel="stylesheet", href="/assets/css/bootstrap-utilities.css") 
+    link(rel="stylesheet", href="/assets/css/bootstrap.css") 
+    link(rel="stylesheet", href="/assets/css/bootstrap.rtl.css") 
+    body
+        header
+            nav(class="navbar navbar-expand-lg bg-body-tertiary p-0")
+                div(class="container-fluid bg-primary")
+                    a(class="navbar-brand text-warning" href="/") CBT
+                    button(class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation")
+                        span(class="navbar-toggler-icon")
+                    div(class="collapse navbar-collapse" id="navbarText")
+                        ul(class="navbar-nav me-auto mb-2 mb-lg-0")
+                            li(class="nav-item mx-3")
+                                a(class="nav-link text-warning" href="/cbt") Test
+                            li(class="nav-item mx-3")
+                                a(class="nav-link text-warning" href=`/cbt/test/result/${user_id}`) Result 
+                            li(class="nav-item mx-3")
+                                a(class="nav-link text-warning" href="/logout") Logout
+                        span(class="navbar-text text-warning")=username||"User"
+        main
+            div(class="container-xxl col-sm-6 bg-light mt-4 p-4")
+                p(class="mx-1 text-center")=`Welcome, ${username}`
+                p(class="mx-1 text-decoration-underline") Instructions
+                ul
+                    li=`This test consists of ${questions.length} questions`
+                    li=`You are to answer all questions`   
+                    li=`All questions carry equal marks`   
+                    li=`Make sure you submit before the time runs out`   
+                a(class="nav-link text-light bg-dark text-center p-1 fs-3" href=`/cbt/test/${questions[0]["id"]}`) Start 
+        script(src="/assets/js/bootstrap.bundle.js")
+        script(src="/assets/js/bootstrap.bundle.js")
+        script(src="/assets/js/bootstrap.bundle.js")

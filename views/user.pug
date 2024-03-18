@@ -1,0 +1,41 @@
+html
+    head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title CBT - Home Page
+    link(rel="stylesheet", href="/assets/css/bootstrap-grid.css")
+    link(rel="stylesheet", href="/assets/css/bootstrap-reboot.css")
+    link(rel="stylesheet", href="/assets/css/bootstrap-utilities.css")
+    link(rel="stylesheet", href="/assets/css/bootstrap.css")
+    link(rel="stylesheet", href="/assets/css/bootstrap.rtl.css")
+    body
+        header
+            nav(class="navbar navbar-expand-lg bg-body-tertiary p-0")
+                div(class="container-fluid bg-primary")
+                    a(class="navbar-brand text-warning" href="/") CBT
+                    button(class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation")
+                        span(class="navbar-toggler-icon")
+                    div(class="collapse navbar-collapse" id="navbarText")
+                        ul(class="navbar-nav me-auto mb-2 mb-lg-0")
+                            li(class="nav-item mx-3")
+                                a(class="nav-link text-warning" href="/signup") Register
+                            li(class="nav-item mx-3")
+                                a(class="nav-link text-warning" href="/login") Login
+                            li(class="nav-item mx-3")
+                                a(class="nav-link text-warning" href="/cbt") Test
+                            li(class="nav-item mx-3")
+                                a(class="nav-link text-warning" href=`/cbt/test/result/${user_id}`) Result 
+                            li(class="nav-item mx-3")
+                                a(class="nav-link text-warning" href="/logout") Logout
+                        span(class="navbar-text text-warning")=username||"User"
+        main
+            div(class="container-md") 
+                div(class="row my-2")
+                    each item in content
+                        div(class="col-md-4 text-center my-2")
+                            a(href=`/cbt` class="text-decoration-none bg-warning fw-bold")
+                                p(class="bg-warning" class="m-0")=item.title
+                                img(src=`/assets/images/${item.image}` class="w-100" alt="No Image")
+        script(src="/assets/js/bootstrap.bundle.js")
+        script(src="/assets/js/bootstrap.bundle.js")
+        script(src="/assets/js/bootstrap.bundle.js")

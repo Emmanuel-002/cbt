@@ -1,0 +1,71 @@
+html
+    head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title=`Test - ${username}`
+    link(rel="stylesheet", href="/assets/css/bootstrap-grid.css") 
+    link(rel="stylesheet", href="/assets/css/bootstrap-reboot.css") 
+    link(rel="stylesheet", href="/assets/css/bootstrap-utilities.css") 
+    link(rel="stylesheet", href="/assets/css/bootstrap.css") 
+    link(rel="stylesheet", href="/assets/css/bootstrap.rtl.css") 
+    body
+        header
+            nav(class="navbar navbar-expand-lg bg-body-tertiary p-0")
+                div(class="container-fluid bg-primary")
+                    a(class="navbar-brand text-warning" href="/") CBT
+                    button(class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation")
+                        span(class="navbar-toggler-icon")
+                    div(class="collapse navbar-collapse" id="navbarText")
+                        ul(class="navbar-nav me-auto mb-2 mb-lg-0")
+                            a(class="nav-link text-dark" href=`/cbt/test/result/${user_id}`) Finish Test
+                        span(class="navbar-text text-warning")=username||"User"
+        main
+            div(class="px-3" id="displayTime")=time
+            div(class="container-sm col-sm-4 bg-light mt-4 p-4")
+                each question in questions
+                    h3(class="mx-1 text-center")=`Question ${question["number"]}`
+                    p(class="fw-bold")=`${question["question"]}`
+                    div 
+                        if question["optionA"]==question["choice"]
+                            input(class="form-check-input" type="radio" name=`Question${question["number"]}` id=`flexRadioDefault${question["number"]}a` checked) 
+                        else
+                            input(class="form-check-input" type="radio" name=`Question${question["number"]}` id=`flexRadioDefault${question["number"]}a`) 
+                        label(class="form-check-label mx-2" for=`flexRadioDefault${question["number"]}a`)
+                            a(class="nav-link text-dark" href=`/cbt/test/record/${question["number"]}-${question["optionA"]}`)=`${question["optionA"]}`
+                    div
+                        if question["optionB"]==question["choice"]
+                            input(class="form-check-input" type="radio" name=`Question${question["number"]}` id=`flexRadioDefault${question["number"]}b` checked)
+                        else
+                            input(class="form-check-input" type="radio" name=`Question${question["number"]}` id=`flexRadioDefault${question["number"]}b`)
+                        label(class="form-check-label mx-2" for=`flexRadioDefault${question["number"]}b`)
+                            a(class="nav-link text-dark" href=`/cbt/test/record/${question["number"]}-${question["optionB"]}`)=`${question["optionB"]}`
+                    div
+                        if question["optionC"]==question["choice"]
+                            input(class="form-check-input" type="radio" name=`Question${question["number"]}` id=`flexRadioDefault${question["number"]}c` checked)
+                        else     
+                            input(class="form-check-input" type="radio" name=`Question${question["number"]}` id=`flexRadioDefault${question["number"]}c`) 
+                        label(class="form-check-label mx-2" for=`flexRadioDefault${question["number"]}c`)
+                            a(class="nav-link text-dark" href=`/cbt/test/record/${question["number"]}-${question["optionC"]}`)=`${question["optionC"]}`
+                    div
+                        if question["optionD"]==question["choice"]
+                            input(class="form-check-input" type="radio" name=`Question${question["number"]}` id=`flexRadioDefault${question["number"]}d` checked)
+                        else 
+                            input(class="form-check-input" type="radio" name=`Question${question["number"]}` id=`flexRadioDefault${question["number"]}d`) 
+                        label(class="form-check-label mx-2" for=`flexRadioDefault${question["number"]}d`)
+                            a(class="nav-link text-dark" href=`/cbt/test/record/${question["number"]}-${question["optionD"]}`)=`${question["optionD"]}`
+                    div(class="d-flex justify-content-between mt-2")
+                        form(action=`/cbt/test/${question["prev"]}` method="get")
+                            if question["prev"] === null
+                                button(type="submit" class="btn btn-primary text-warning m-1" disabled)=`<< Previous`
+                            else 
+                                button(type="submit" class="btn btn-primary text-warning m-1")=`<< Previous`
+                        if question["nxt"] !== null
+                            form(action=`/cbt/test/${question["nxt"]}` method="get")
+                                button(type="submit" class="btn btn-primary text-warning m-1 w-100")=`Next >>`
+                        else
+                            form(action=`/cbt/test/result/${user_id}` method="post")
+                                button(type="submit" class="btn btn-primary text-warning m-1 w-100") Submit
+        script(src="/assets/js/bootstrap.bundle.js") 
+        script(src="/assets/js/bootstrap.bundle.js") 
+        script(src="/assets/js/bootstrap.bundle.js") 
+        //- script(src="/assets/js/script/test.js") 
