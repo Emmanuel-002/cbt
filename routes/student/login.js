@@ -14,7 +14,7 @@ const postLogin =(req,res)=>{
    // file.pipe(csv.parse({delimeter:"\n"}))
     //.on("data",(row)=>{
         //const [user_id,fullName,email,user_password,admin] = row
-        if(id === 'user' && password === 'password' ){
+        if(id === 'user@gmail.com' && password === 'password' ){
             req.session.user={}
             req.session.user["fullName"] = 'User'
             req.session.user["user_id"] = '123'
