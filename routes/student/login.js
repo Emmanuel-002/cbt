@@ -11,16 +11,17 @@ const getLogin = (req,res)=>{
 const postLogin =(req,res)=>{
     const {id,password} = req.body
     console.log(id, password)
+    res.redirect("/dashboard")
     //const file = createReadStream('users.csv')
    // file.pipe(csv.parse({delimeter:"\n"}))
     //.on("data",(row)=>{
         //const [user_id,fullName,email,user_password,admin] = row
-        if(id === '123' && password === 'password' ){
-            req.session.user={}
-            req.session.user["fullName"] = 'User'
-            req.session.user["user_id"] = id
-            res.redirect("/dashboard")
-       }
+      //  if(id === '123' && password === 'password' ){
+           // req.session.user={}
+            //req.session.user["fullName"] = 'User'
+            //req.session.user["user_id"] = id
+           // res.redirect("/dashboard")
+      // }
        // })
    // .on("end",()=>{
         //res.render("login")
