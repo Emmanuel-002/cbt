@@ -18,7 +18,7 @@ const postLogin =(req,res)=>{
         if(id === '123' && password === 'password' ){
             req.session.user={}
             req.session.user["fullName"] = 'User'
-            req.session.user["user_id"] = '123'
+            req.session.user["user_id"] = id
             res.redirect("/dashboard")
        }
        // })
