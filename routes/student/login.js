@@ -19,11 +19,11 @@ const postLogin =(req,res)=>{
             req.session.user["fullName"] = 'User'
             req.session.user["user_id"] = '123'
             res.redirect("/dashboard")
-      //  }
+       }
        // })
    // .on("end",()=>{
         //res.render("login")
-    })
+   // })
 }
 
 export default {getLogin,postLogin}
